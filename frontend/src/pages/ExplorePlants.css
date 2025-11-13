@@ -1,0 +1,183 @@
+.explore-plants {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  padding: 2rem 0 3rem;
+}
+
+.explore-plants-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.explore-plants-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.search-container {
+  display: flex;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.filters-container {
+  margin: 1.5rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.filter-pill {
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: var(--text-light);
+  box-shadow: 0 6px 14px rgba(75, 139, 59, 0.25);
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(75, 139, 59, 0.1);
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--primary-green);
+  color: var(--text-light);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.search-button:hover {
+  background: #3a6d2e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(75, 139, 59, 0.3);
+}
+
+.search-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.plants-grid-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 1400px) {
+  .plants-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .plants-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .plants-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .explore-plants-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .plants-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .explore-plants {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .explore-plants-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .explore-plants-title {
+    font-size: 1.75rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filters-container {
+    justify-content: flex-start;
+  }
+
+  .plants-grid-container {
+    padding: 1rem;
+  }
+}

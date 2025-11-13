@@ -1,0 +1,117 @@
+.virtual-tour {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.tour-hero {
+  background: linear-gradient(135deg, var(--soft-clay), var(--gentle-lavender));
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.tour-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.tour-hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
+
+.tour-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.tour-section-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tour-section-card:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 25px rgba(75, 139, 59, 0.15);
+}
+
+.tour-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.tour-section-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.tour-section-card p {
+  color: var(--text-dark);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.tour-button {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green), var(--soothing-turquoise));
+  color: var(--text-light);
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tour-button:hover {
+  box-shadow: 0 4px 15px rgba(75, 139, 59, 0.3);
+}
+
+.tour-info {
+  text-align: center;
+  padding: 3rem;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+}
+
+.tour-info h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+}
+
+.tour-info p {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .tour-hero h1 {
+    font-size: 2rem;
+  }
+
+  .tour-grid {
+    grid-template-columns: 1fr;
+  }
+}

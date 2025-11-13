@@ -1,0 +1,51 @@
+:root {
+  /* Ayurveda Light Theme Colors */
+  --primary-green: #4B8B3B;
+  --warm-sand: #D6CDAA;
+  --soothing-turquoise: #3BB9B0;
+  --soft-clay: #C97B38;
+  --gentle-lavender: #D4C2E7;
+  --earth-brown: #8B6F47;
+  --light-cream: #F5F1E8;
+  --text-dark: #2C3E2D;
+  --text-light: #ffffff;
+  --bg-primary: #ffffff;
+  --bg-secondary: #F5F1E8;
+  --card-bg: #ffffff;
+  --border-color: #D6CDAA;
+}
+
+[data-theme="dark"] {
+  /* Ayurveda Dark Theme Colors - Enhanced for better UI with more green */
+  --primary-green: #5FCF57;
+  --warm-sand: #8B7A5F;
+  --soothing-turquoise: #4ECDC4;
+  --soft-clay: #D89A5F;
+  --gentle-lavender: #A993C7;
+  --earth-brown: #6B5637;
+  --light-cream: #2C2A23;
+  --text-dark: #E8E6E0;
+  --text-light: #FFFFFF;
+  --bg-primary: #1A1815;
+  --bg-secondary: #2A2824;
+  --card-bg: #2F2D29;
+  --border-color: #4A6B45;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
