@@ -1,51 +1,52 @@
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import './HerbalChatbot.css'
-import chatbotImg from '../assets/Home_Page/chatbot2.png'
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./HerbalChatbot.css";
+import chatbotImg from "../assets/Home_Page/chatbot2.png";
 
 const HerbalChatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
       text: "Hello! I'm your Ayurvedic assistant. How can I help you today?",
-      sender: 'bot',
-      timestamp: new Date()
-    }
-  ])
-  const [inputValue, setInputValue] = useState('')
-  const messagesEndRef = useRef(null)
-  const inputRef = useRef(null)
+      sender: "bot",
+      timestamp: new Date(),
+    },
+  ]);
+
+  const [inputValue, setInputValue] = useState("");
+  const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
 
-  const handleSendMessage = async () => {
-    if (!inputValue.trim()) return
+  const handleSendMessage = () => {
+    if (!inputValue.trim()) return;
 
     const userMessage = {
       id: messages.length + 1,
       text: inputValue.trim(),
-      sender: 'user',
-      timestamp: new Date()
-    }
+      sender: "user",
+      timestamp: new Date(),
+    };
 
-    setMessages(prev => [...prev, userMessage])
-    setInputValue('')
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue("");
 
-    // TODO: Add backend API call here to get bot response
-  }
+    // backend API can be added later
+  };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSendMessage()
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
     }
-  }
+  };
 
   return (
     <div className="herbal-chatbot">
@@ -76,10 +77,10 @@ const HerbalChatbot = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="chatbot-content">
           <div className="chat-interface">
-            <div className="chat-messages" id="chat-messages">
+            <div className="chat-messages">
               <AnimatePresence>
                 {messages.map((message) => (
                   <motion.div
@@ -90,26 +91,13 @@ const HerbalChatbot = () => {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="message-avatar">
-                      {message.sender === 'bot' ? (
-                        <div className="bot-avatar">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                          </svg>
-                        </div>
-                      ) : (
-                        <div className="user-avatar">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                            <circle cx="12" cy="7" r="4" />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
                     <div className="message-content">
                       <p>{message.text}</p>
                       <span className="message-time">
-                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        {message.timestamp.toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
                       </span>
                     </div>
                   </motion.div>
@@ -117,7 +105,7 @@ const HerbalChatbot = () => {
               </AnimatePresence>
               <div ref={messagesEndRef} />
             </div>
-            
+
             <div className="chat-input-container">
               <input
                 ref={inputRef}
@@ -133,17 +121,14 @@ const HerbalChatbot = () => {
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
+                Send
               </button>
             </div>
           </div>
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default HerbalChatbot
+export default HerbalChatbot;

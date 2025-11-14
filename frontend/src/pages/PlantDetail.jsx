@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import "./PlantDetail.css";
+import "./NPlantDetail.css";
 import tulsi from "../assets/tulsi.png";
 import aloe from "../assets/aloe2.png";
 import garlic from "../assets/garlic.png";
