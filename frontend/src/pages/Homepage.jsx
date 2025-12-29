@@ -8,6 +8,13 @@ import tulsi from "../assets/tulsi.png";
 import ayuimage from "../assets/ayuimage.png";
 import haldi from "../assets/haldi.png";
 
+// Import feature images from Home_Page folder
+import explorePlantsImg from "../assets/Home_Page/Explore_plant.webp";
+import chatbotImg from "../assets/Home_Page/chatbot.png";
+import virtualTourImg from "../assets/Home_Page/virtual_tour.jpg";
+import learnAyurvedaImg from "../assets/Home_Page/ayurveda_orig.jpg";
+import visualizerImg from "../assets/Home_Page/a-couple-man-and-a-woman-wearing-vr-glasses-doing-a-game-simulation-of-traveling-around-the-world-through-virtual-reality-virtual-travel-for-entertainment-and-education-flat-illustration-vecto.jpg";
+
 const Homepage = () => {
   const navigate = useNavigate()
 
@@ -16,35 +23,35 @@ const Homepage = () => {
       id: 1,
       title: 'Explore Plants',
       description: 'Discover the vast world of Ayurvedic plants and their healing properties',
-      icon: '🌿',
+      image: explorePlantsImg,
       color: 'var(--primary-green)'
     },
     {
       id: 2,
       title: 'Herbal Chatbot',
       description: 'Get personalized Ayurvedic recommendations from our AI assistant',
-      icon: '🤖',
+      image: chatbotImg,
       color: 'var(--soothing-turquoise)'
     },
     {
       id: 3,
       title: 'Virtual Tour',
       description: 'Experience an immersive journey through Ayurvedic gardens',
-      icon: '🌺',
+      image: virtualTourImg,
       color: 'var(--soft-clay)'
     },
     {
       id: 4,
       title: 'Learn Ayurveda',
       description: 'Deep dive into ancient wisdom and modern applications',
-      icon: '📚',
+      image: learnAyurvedaImg,
       color: 'var(--gentle-lavender)'
     },
     {
       id: 5,
       title: '3D Herbal Visualizer',
       description: 'Generate realistic 3D view of plants instantly from 2D images using AI technology',
-      icon: '🧩',
+      image: visualizerImg,
       color: 'var(--soft-cyan)'
     }
   ]

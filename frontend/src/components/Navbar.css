@@ -94,6 +94,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  position: relative;
 }
 
 .theme-toggle,
@@ -118,6 +119,116 @@
   border-color: var(--primary-green);
   color: var(--text-light);
   transform: scale(1.1);
+}
+
+/* --- Profile Dropdown --- */
+.profile-container {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-green), var(--soothing-turquoise));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.user-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.25rem;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.5rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-secondary);
+  color: var(--primary-green);
+}
+
+.dropdown-item svg {
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.dropdown-item.logout {
+  color: #e74c3c;
+}
+
+.dropdown-item.logout:hover {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
 }
 
 /* --- Responsive --- */
@@ -150,5 +261,20 @@
   .logo-image {
     height: 35px;
     width: 35px;
+  }
+
+  .profile-dropdown {
+    right: 0;
+    min-width: 220px;
+  }
+
+  .user-name,
+  .user-email {
+    font-size: 0.85rem;
+  }
+
+  .dropdown-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
   }
 }

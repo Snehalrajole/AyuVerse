@@ -21,8 +21,12 @@ const FeatureCard = ({ feature }) => {
       whileHover={{ y: -10, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <div className="feature-icon" style={{ color: feature.color }}>
-        {feature.icon}
+      <div className="feature-image-container">
+        <img 
+          src={feature.image} 
+          alt={feature.title}
+          className="feature-image"
+        />
       </div>
       <h3 className="feature-title">{feature.title}</h3>
       <p className="feature-description">{feature.description}</p>
