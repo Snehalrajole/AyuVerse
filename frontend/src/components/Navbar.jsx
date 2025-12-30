@@ -4,53 +4,49 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 import logo from "../assets/LOGO1.png"; // Import logo
 
-// const Navbar = ({ theme, toggleTheme }) => {
-//   const location = useLocation()
-//   const navigate = useNavigate()
-//   const [isAuthenticated, setIsAuthenticated] = useState(false)
-//   const [userName, setUserName] = useState('')
-//   const [showDropdown, setShowDropdown] = useState(false)
-//   const dropdownRef = useRef(null)
-
-//   useEffect(() => {
-//     // Check authentication status
-//     const authStatus = localStorage.getItem('isAuthenticated')
-//     const name = localStorage.getItem('userName') || localStorage.getItem('userEmail')
-//     setIsAuthenticated(authStatus === 'true')
-//     setUserName(name || '')
-//   }, [location])
-
-//   // Close dropdown when clicking outside
-//   useEffect(() => {
-//     const handleClickOutside = (event) => {
-//       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-//         setShowDropdown(false)
-//       }
-//     }
-
-//     document.addEventListener('mousedown', handleClickOutside)
-//     return () => {
-//       document.removeEventListener('mousedown', handleClickOutside)
-//     }
-//   }, [])
-
-//   const handleLogout = () => {
-//     localStorage.removeItem('isAuthenticated')
-//     localStorage.removeItem('userEmail')
-//     localStorage.removeItem('userName')
-//     setIsAuthenticated(false)
-//     setUserName('')
-//     setShowDropdown(false)
-//     navigate('/')
-//   }
-
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import "./Navbar.css";
-import logo from "../assets/LOGO1.png"; // Import logo
-
 const Navbar = ({ theme, toggleTheme }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // ----- State & refs -----
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // ----- Check auth on location change -----
+  useEffect(() => {
+    const authStatus = localStorage.getItem("isAuthenticated");
+    const name =
+      localStorage.getItem("userName") || localStorage.getItem("userEmail");
+    setIsAuthenticated(authStatus === "true");
+    setUserName(name || "");
+  }, [location]);
+
+  // ----- Close dropdown on outside click -----
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // ----- Logout handler -----
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
+    setIsAuthenticated(false);
+    setUserName("");
+    setShowDropdown(false);
+    navigate("/");
+  };
 
   const isActive = (path) => location.pathname === path;
 
@@ -107,10 +103,6 @@ const Navbar = ({ theme, toggleTheme }) => {
               to="/3d-visualizer"
               className={`navbar-link ${
                 isActive("/3d-visualizer") ? "active" : ""
-              }`}
-              to="/3D Visualizer"
-              className={`navbar-link ${
-                isActive("/3D Visualizer") ? "active" : ""
               }`}
             >
               Diet Chart
